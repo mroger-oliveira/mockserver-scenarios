@@ -15,6 +15,10 @@ pipeline {
 
     stages {
         
+        stage('Clone') {
+            checkout scm
+        }
+        
         stage("Clear Expectations") {
             steps {
                 sh "curl --insecure -v -X PUT \"https://service.mockserver.fdv.servicedesk.k8s.dev.gt.intranet.pags/mockserver/reset\""
